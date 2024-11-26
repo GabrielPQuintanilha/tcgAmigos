@@ -1,0 +1,105 @@
+#intro{
+    display:none;
+    }
+
+body{
+    min-width:300;display:flex; justify-content: center;text-align:center;
+    }
+
+
+#carta_um{
+    width:300px;height:auto;margin:auto
+    }
+
+#div_batalha{
+    display:flex;
+    }
+
+#span_batalha{
+    position:relative;height:500px;
+    }
+
+
+#span_botoes_batalha{
+    display:flex;color:red;flex-direction:column;background-color:red;position:relative;
+    }
+
+.botao_batalha{
+    background-color:rgba(255, 255, 255, 0);
+    font-size:0px;
+    width:229px;
+    border:none;
+    margin:3px;
+    height:24px;
+    outline: none;
+}
+
+#div_botao_batalha{
+    position:absolute;
+    top:-203px;
+    left:0px;
+}
+
+.botao_batalha:hover{
+    opacity:1;
+    outline: 3px solid yellow;
+}
+
+
+#popUpFinal{
+    display:none;
+    width:300px;
+    height:430px;
+    top:60px;
+    background-color:rgba(0, 0, 0, 0.0);
+    z-index:10;
+    position:absolute;
+}
+
+#span_resultado{
+    font-size:45px;
+    color:red;
+    /* background-color:black; */
+    margin-top:200px;
+    display:none;
+}
+
+#botao_proximo_round{
+    width:auto;
+    height:30px;
+    margin-top:200px;
+}
+
+#div_deck{
+    background-color:purple;
+    z-index:20;
+    top:510px;
+    position:absolute;
+    display:none;
+}
+
+#img_deck_cartas{
+    width:30px;
+    height:auto;
+}
+
+.imagem {
+    opacity: 0;
+    transform: translateY(50px);  /* Para efeito de "de cima para baixo", use translateY(-50px) */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.imagem.mostrar {
+    opacity: 1;
+    transform: translateY(0); /* A imagem volta para sua posição original */
+}
+
+.imagem.sairCima {
+    opacity: 0; /* A imagem se torna invisível */
+    transform: translateY(-50px); /* A imagem se move para cima, como se estivesse saindo */
+}
+
+.imagem.sairBaixo {
+    opacity: 0; /* A imagem se torna invisível */
+    transform: translateY(+50px); /* A imagem se move para cima, como se estivesse saindo */
+}
