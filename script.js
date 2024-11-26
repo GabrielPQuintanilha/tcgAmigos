@@ -169,7 +169,7 @@ function jogadaUsuario(){
     div_intro.style.display = "none";
     div_batalha.style.display="block";
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.jpg" id="carta_um" class="imagem">`)
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`)
     const imagem = document.querySelector("#carta_um");
     
     entrarBaixo();
@@ -352,7 +352,7 @@ function preFaseOponente(){
     span_botoes_batalha.style.display = "none";
     texto_batalha.textContent = `Aguarde o seu oponente`;
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.jpg" id="carta_um" class="imagem">`);
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`);
     entrarBaixo();
     
     setTimeout(jogadaOponente, 3000); 
