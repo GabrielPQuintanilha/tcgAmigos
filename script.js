@@ -5,7 +5,7 @@ let baralho_dois ="";
 let atributoMaiorValor = "";
 
 let arrayValoresCartas = [];
-const arrayAtributos = ["azedo", "carisma", "dodoi", "feio", "Resistência Etílica", "vagabundo"];
+const arrayAtributos = ["Azedo", "Carisma", "Dodói", "Feio", "Resistência Etílica", "Vagabundo"];
 let maiorValor = "";
 
 const div_intro = document.querySelector("#intro");
@@ -22,85 +22,385 @@ let dificuldade="";
 
 const cartas = [
   {
-    "nome": "machado",
-    "id": "m1",
-    "azedo": 5,
-    "carisma": 8,
-    "dodoi": 6,
-    "feio": 3,
-    "Resistência Etílica": 3,
-    "vagabundo": 1
+    "nome": "Ibra",
+    "id": "b1",
+    "Azedo": 5,
+    "Carisma": 7,
+    "Dodói": 4,
+    "Feio": 3,
+    "Resistência Etílica": 9,
+    "Vagabundo": 1
   },
   {
-    "nome": "machado bebe",
-    "id": "m2",
-    "azedo": 7,
-    "carisma": 4,
-    "dodoi": 2,
-    "feio": 8,
-    "Resistência Etílica": 5,
-    "vagabundo": 8
+    "nome": "Lord Ibra",
+    "id": "b2",
+    "Azedo": 3,
+    "Carisma": 8,
+    "Dodói": 6,
+    "Feio": 1,
+    "Resistência Etílica": 10,
+    "Vagabundo": 5
   },
-  // {
-    // "nome": "machado bicudo",
-    // "id": "m3",
-    // "azedo": 3,
-    // "carisma": 8,
-    // "dodoi": 10,
-    // "feio": 4,
-    // "Resistência Etílica": 2,
-    // "vagabundo": 7
-  // },
-  // {
-    // "nome": "machado picanha",
-    // "id": "m4",
-    // "azedo": 6,
-    // "carisma": 10,
-    // "dodoi": 8,
-    // "feio": 4,
-    // "Resistência Etílica": 1,
-    // "vagabundo": 4
-  // },
-  // {
-    // "nome": "quinta",
-    // "id": "q1",
-    // "azedo": 3,
-    // "carisma": 7,
-    // "dodoi": 6,
-    // "feio": 1,
-    // "Resistência Etílica": 3,
-    // "vagabundo": 2
-  // },
-  // {
-    // "nome": "quinta no zap",
-    // "id": "q2",
-    // "azedo": 4,
-    // "carisma": 6,
-    // "dodoi": 9,
-    // "feio": 2,
-    // "Resistência Etílica": 4,
-    // "vagabundo": 4
-  // },
-  // {
-    // "nome": "quinta coringa",
-    // "id": "q3",
-    // "azedo": 8,
-    // "carisma": 2,
-    // "dodoi": 6,
-    // "feio": 10,
-    // "Resistência Etílica": 3,
-    // "vagabundo": 5
-  // },
-  // {
-    // "nome": "bd sr quintanilha",
-    // "id": "q4",
-    // "azedo": 3,
-    // "carisma": 6,
-    // "dodoi": 6,
-    // "feio": 2,
-    // "Resistência Etílica": 5,
-    // "vagabundo": 1
-  // }
+  {
+    "nome": "Ibra lyon",
+    "id": "b3",
+    "Azedo": 8,
+    "Carisma": 5,
+    "Dodói": 4,
+    "Feio": 5,
+    "Resistência Etílica": 5,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Majimbra",
+    "id": "b4",
+    "Azedo": 7,
+    "Carisma": 8,
+    "Dodói": 7,
+    "Feio": 6,
+    "Resistência Etílica": 6,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Daniel",
+    "id": "d1",
+    "Azedo": 8,
+    "Carisma": 8,
+    "Dodói": 5,
+    "Feio": 5,
+    "Resistência Etílica": 3,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Daniel UFC",
+    "id": "d3",
+    "Azedo": 8,
+    "Carisma": 2,
+    "Dodói": 8,
+    "Feio": 7,
+    "Resistência Etílica": 8,
+    "Vagabundo": 2
+  },
+  {
+    "nome": "Daniel no loop",
+    "id": "d4",
+    "Azedo": 1,
+    "Carisma": 10,
+    "Dodói": 8,
+    "Feio": 5,
+    "Resistência Etílica": 2,
+    "Vagabundo": 9
+  },
+  {
+    "nome": "Magno",
+    "id": "f1",
+    "Azedo": 7,
+    "Carisma": 8,
+    "Dodói": 5,
+    "Feio": 2,
+    "Resistência Etílica": 3,
+    "Vagabundo": 2
+  },
+  {
+    "nome": "Magnifico",
+    "id": "f2",
+    "Azedo": 2,
+    "Carisma": 7,
+    "Dodói": 9,
+    "Feio": 9,
+    "Resistência Etílica": 2,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Krav Magno",
+    "id": "f3",
+    "Azedo": 9,
+    "Carisma": 4,
+    "Dodói": 8,
+    "Feio": 4,
+    "Resistência Etílica": 8,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Magn in",
+    "id": "f4",
+    "Azedo": 5,
+    "Carisma": 2,
+    "Dodói": 8,
+    "Feio": 2,
+    "Resistência Etílica": 7,
+    "Vagabundo": 1
+  },
+  {
+    "nome": "André Tannure",
+    "id": "h1",
+    "Azedo": 2,
+    "Carisma": 5,
+    "Dodói": 7,
+    "Feio": 3,
+    "Resistência Etílica": 7,
+    "Vagabundo": 7
+  },
+  {
+    "nome": "Haroldo inchado",
+    "id": "h2",
+    "Azedo": 6,
+    "Carisma": 8,
+    "Dodói": 9,
+    "Feio": 10,
+    "Resistência Etílica": 4,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Haroldo viajante",
+    "id": "h3",
+    "Azedo": 1,
+    "Carisma": 9,
+    "Dodói": 10,
+    "Feio": 2,
+    "Resistência Etílica": 5,
+    "Vagabundo": 10
+  },
+  {
+    "nome": "Igor",
+    "id": "i1",
+    "Azedo": 7,
+    "Carisma": 8,
+    "Dodói": 4,
+    "Feio": 2,
+    "Resistência Etílica": 3,
+    "Vagabundo": 3
+  },
+  {
+    "nome": "Lei sekaa",
+    "id": "i2",
+    "Azedo": 2,
+    "Carisma": 7,
+    "Dodói": 7,
+    "Feio": 8,
+    "Resistência Etílica": 2,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Curupigor",
+    "id": "i3",
+    "Azedo": 8,
+    "Carisma": 8,
+    "Dodói": 8,
+    "Feio": 10,
+    "Resistência Etílica": 8,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Igor quarentena",
+    "id": "i4",
+    "Azedo": 2,
+    "Carisma": 4,
+    "Dodói": 8,
+    "Feio": 4,
+    "Resistência Etílica": 5,
+    "Vagabundo": 10
+  },
+  {
+    "nome": "Machado",
+    "id": "m1",
+    "Azedo": 5,
+    "Carisma": 8,
+    "Dodói": 6,
+    "Feio": 3,
+    "Resistência Etílica": 3,
+    "Vagabundo": 1
+  },
+  {
+    "nome": "Machado bebê",
+    "id": "m2",
+    "Azedo": 7,
+    "Carisma": 4,
+    "Dodói": 2,
+    "Feio": 8,
+    "Resistência Etílica": 5,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Machado bicudo",
+    "id": "m3",
+    "Azedo": 3,
+    "Carisma": 8,
+    "Dodói": 10,
+    "Feio": 4,
+    "Resistência Etílica": 2,
+    "Vagabundo": 7
+  },
+  {
+    "nome": "Machado picanha",
+    "id": "m4",
+    "Azedo": 6,
+    "Carisma": 10,
+    "Dodói": 8,
+    "Feio": 4,
+    "Resistência Etílica": 1,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Thiago",
+    "id": "o1",
+    "Azedo": 1,
+    "Carisma": 9,
+    "Dodói": 3,
+    "Feio": 3,
+    "Resistência Etílica": 5,
+    "Vagabundo": 6
+  },
+  {
+    "nome": "Thiago pescado",
+    "id": "o4",
+    "Azedo": 8,
+    "Carisma": 7,
+    "Dodói": 7,
+    "Feio": 4,
+    "Resistência Etílica": 5,
+    "Vagabundo": 10
+  },
+  {
+    "nome": "Quinta",
+    "id": "q1",
+    "Azedo": 3,
+    "Carisma": 7,
+    "Dodói": 6,
+    "Feio": 1,
+    "Resistência Etílica": 3,
+    "Vagabundo": 2
+  },
+  {
+    "nome": "Quinta no zap",
+    "id": "q2",
+    "Azedo": 4,
+    "Carisma": 6,
+    "Dodói": 9,
+    "Feio": 2,
+    "Resistência Etílica": 4,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Quinta coringa",
+    "id": "q3",
+    "Azedo": 8,
+    "Carisma": 2,
+    "Dodói": 6,
+    "Feio": 10,
+    "Resistência Etílica": 3,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Bd sr. Quintanilha",
+    "id": "q4",
+    "Azedo": 3,
+    "Carisma": 6,
+    "Dodói": 6,
+    "Feio": 2,
+    "Resistência Etílica": 5,
+    "Vagabundo": 1
+  },
+  {
+    "nome": "Duds",
+    "id": "r1",
+    "Azedo": 1,
+    "Carisma": 9,
+    "Dodói": 3,
+    "Feio": 2,
+    "Resistência Etílica": 5,
+    "Vagabundo": 6
+  },
+  {
+    "nome": "Faz a base",
+    "id": "r2",
+    "Azedo": 8,
+    "Carisma": 2,
+    "Dodói": 6,
+    "Feio": 2,
+    "Resistência Etílica": 5,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Chupacabra",
+    "id": "r3",
+    "Azedo": 8,
+    "Carisma": 8,
+    "Dodói": 8,
+    "Feio": 10,
+    "Resistência Etílica": 8,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Duds vou mais n",
+    "id": "r4",
+    "Azedo": 8,
+    "Carisma": 1,
+    "Dodói": 9,
+    "Feio": 4,
+    "Resistência Etílica": 5,
+    "Vagabundo": 10
+  },
+  {
+    "nome": "Pazos",
+    "id": "x1",
+    "Azedo": 5,
+    "Carisma": 7,
+    "Dodói": 8,
+    "Feio": 3,
+    "Resistência Etílica": 6,
+    "Vagabundo": 2
+  },
+  {
+    "nome": "Rest in Pazos",
+    "id": "x4",
+    "Azedo": 5,
+    "Carisma": 6,
+    "Dodói": 10,
+    "Feio": 9,
+    "Resistência Etílica": 1,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Dedezão",
+    "id": "z1",
+    "Azedo": 10,
+    "Carisma": 6,
+    "Dodói": 9,
+    "Feio": 3,
+    "Resistência Etílica": 7,
+    "Vagabundo": 3
+  },
+  {
+    "nome": "Abaporu",
+    "id": "z2",
+    "Azedo": 4,
+    "Carisma": 7,
+    "Dodói": 10,
+    "Feio": 8,
+    "Resistência Etílica": 1,
+    "Vagabundo": 8
+  },
+  {
+    "nome": "Mão de raquete",
+    "id": "z3",
+    "Azedo": 1,
+    "Carisma": 7,
+    "Dodói": 8,
+    "Feio": 1,
+    "Resistência Etílica": 7,
+    "Vagabundo": 4
+  },
+  {
+    "nome": "Dedezão do FB",
+    "id": "z4",
+    "Azedo": 1,
+    "Carisma": 9,
+    "Dodói": 5,
+    "Feio": 3,
+    "Resistência Etílica": 7,
+    "Vagabundo": 3
+  }
 ]
 
 function shuffle (){
@@ -176,7 +476,7 @@ function jogadaUsuario(){
     div_batalha.style.display="block";
     texto_batalha.style.display="flex";
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`)
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.png" id="carta_um" class="imagem">`)
     const imagem = document.querySelector("#carta_um");
     
     entrarBaixo();
@@ -249,7 +549,7 @@ function disputaVitoria(){
     texto_batalha.innerHTML="";
     
     if (baralho_dois[0][atributoMaiorValor]>baralho_um[0][atributoMaiorValor]){
-        texto_batalha.innerHTML=`Você <span id="span_cor" style="color: red"> perdeu </span> esse round. Você <span id="span_cor" style="color: red"> perde </span> "${baralho_um[0].nome}"`;
+        texto_batalha.innerHTML=`<span>Você <span id="span_cor" style="color: red"> perdeu </span> esse round. Você <span id="span_cor" style="color: red"> perde </span> "${baralho_um[0].nome}"</span>`;
         sairCima();
         console.log("Voce perdeu. Voce perde sua Carta");
         baralho_dois.push(baralho_um[0]);
@@ -260,7 +560,7 @@ function disputaVitoria(){
         
     }
     else if (baralho_dois[0][atributoMaiorValor]<baralho_um[0][atributoMaiorValor]){
-        texto_batalha.innerHTML=`Você <span id="span_cor" style="color: green"> ganhou </span> esse round. Você <span id="span_cor" style="color: green"> ganha </span> "${baralho_dois[0].nome}"`;
+        texto_batalha.innerHTML=`<span>Você <span id="span_cor" style="color: green"> ganhou </span> esse round. Você <span id="span_cor" style="color: green"> ganha </span> "${baralho_dois[0].nome}"</span>`;
         // console.log("Voce ganhou. Voce ganha a carta do Oponente");
         sairBaixo();
         baralho_um.push(baralho_dois[0]);
@@ -351,9 +651,31 @@ function tamanhoDeckCartas(){
     div_deck.style.display="flex";
     div_deck.innerHTML="";
     
-    for(let i=1;i<=baralho_um.length;i++){
-        div_deck.insertAdjacentHTML("beforeend",`<img src="./img/backTCG.JPG" id="img_deck_cartas">`);
+    if (baralho_um.length === 1) {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck.png" id="img_deck_cartas">`);
+    } 
+    else if (baralho_um.length === 2) {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck.png" id="img_deck_cartas">`);
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck.png" id="img_deck_cartas">`);
+    } 
+    else if (baralho_um.length >= 3 && baralho_um.length <6) {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck25.png" id="img_deck_cartas">`);
+    } 
+    else if (baralho_um.length >= 6 && baralho_um.length <10) {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck50.png" id="img_deck_cartas">`);
+    } 
+    else if (baralho_um.length >= 10 && baralho_um.length <13) {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck75.png" id="img_deck_cartas">`);
+    } 
+    else {
+        div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck100.png" id="img_deck_cartas">`);
     }
+    
+    // for(let i=1;i<=baralho_um.length;i++){
+        // if (i<=10){
+            // div_deck.insertAdjacentHTML("beforeend",`<img src="./img/backTCG.JPG" id="img_deck_cartas">`);
+        // }
+    // }
 }
 
 function preFaseOponente(){
@@ -367,7 +689,7 @@ function preFaseOponente(){
     texto_batalha.style.display="flex";
     texto_batalha.textContent = `Aguarde o seu oponente`;
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`);
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.png" id="carta_um" class="imagem">`);
     entrarBaixo();
     
     setTimeout(jogadaOponente, 3000); 
@@ -389,12 +711,12 @@ function selecionarCaracteristicaOponente(){
 }
 
 function aparecerBotoesUsuario(){
-    span_botoes_batalha.insertAdjacentHTML("beforeend", `<div id="div_botao_batalha"> <input type="button" class = "botao_batalha" id ="botao_azedo" value="azedo"> 
-    <input type="button" class = "botao_batalha" id ="botao_carisma" value="carisma">
-    <input type="button" class = "botao_batalha" id ="botao_dodoi" value="dodoi">
-    <input type="button" class = "botao_batalha" id ="botao_feio" value="feio">
+    span_botoes_batalha.insertAdjacentHTML("beforeend", `<div id="div_botao_batalha"> <input type="button" class = "botao_batalha" id ="botao_azedo" value="Azedo"> 
+    <input type="button" class = "botao_batalha" id ="botao_carisma" value="Carisma">
+    <input type="button" class = "botao_batalha" id ="botao_dodoi" value="Dodói">
+    <input type="button" class = "botao_batalha" id ="botao_feio" value="Feio">
     <input type="button" class = "botao_batalha" id ="botao_resistenciaEtilica" value="Resistência Etílica">
-    <input type="button" class = "botao_batalha" id ="botao_vagabundo" value="vagabundo"> 
+    <input type="button" class = "botao_batalha" id ="botao_vagabundo" value="Vagabundo"> 
     </div>`)
     
     const botao_batalha = document.querySelectorAll(".botao_batalha");
@@ -402,6 +724,7 @@ function aparecerBotoesUsuario(){
     for (const botao of botao_batalha){
         botao.addEventListener("click", selecionarCaracteristica);
     }
+
 }
 
 function sairBaixo(){
@@ -448,15 +771,15 @@ function estrelasVitoria(){
     const shuffle_pngsEstrela = pngsEstrela.sort((a, b) => 0.5 - Math.random());
     
     if (dificuldade==="Fácil"){
-        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
+        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
     }
     else if(dificuldade==="Médio"){
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
     }
     else{
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.png">`)
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.PNG">`)
     }
 }

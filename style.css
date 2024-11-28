@@ -8,9 +8,12 @@
     border: 2px solid black; /* Borda preta de 2px */
     border-radius: 10px; /* Vértices arredondados */
     padding: 5px; /* Opcional: adiciona um pouco de espaçamento interno ao redor do conteúdo */
-    
 }
 
+#submit_username{
+    width:100px;
+    height:50px;
+}
 
 body{
     min-width:300;
@@ -18,7 +21,7 @@ body{
     display:flex; 
     justify-content: center;
     text-align:center;
-    background-image: url(img/backTCG.JPG);
+    background-image: url(img/deck.png);
     background-size: 378px;  /* Mantém a imagem cobrindo toda a área */
     background-position: center -1px;  /* Alinha horizontalmente no centro e desloca a imagem 50px para baixo */
     background-repeat: no-repeat;  /* Evita a repetição da imagem */
@@ -40,7 +43,6 @@ body{
 #texto_batalha{
     background-color:white;
     display: none;
-    /* text-align:center; */
     justify-content: center;
     border: 2px solid black; /* Borda preta de 2px */
     border-radius: 10px; /* Vértices arredondados */
@@ -60,6 +62,7 @@ body{
     display: inline;
     margin-left: 5px;
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 #span_botoes_batalha{
@@ -91,6 +94,11 @@ body{
     box-shadow: 0 0 0 3px yellow;
 }
 
+.botao_batalha:focus {
+    /* outline: none; /* Remove o outline do foco */ 
+    box-shadow: none; /* Remove qualquer box-shadow do foco */
+}
+
 
 #popUpFinal{
     display:none;
@@ -120,7 +128,7 @@ body{
 }
 
 #div_deck{
-    background-color:purple;
+    /* background-color:purple; */
     z-index:20;
     top:510px;
     position:absolute;
@@ -128,8 +136,8 @@ body{
 }
 
 #img_deck_cartas{
-    width:30px;
-    height:auto;
+    width:auto;
+    height:60px;
 }
 
 .imagem {
