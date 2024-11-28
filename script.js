@@ -448,15 +448,15 @@ function estrelasVitoria(){
     const shuffle_pngsEstrela = pngsEstrela.sort((a, b) => 0.5 - Math.random());
     
     if (dificuldade==="Fácil"){
-        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
     }
     else if(dificuldade==="Médio"){
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
     }
     else{
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.PNG">`)
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.png">`)
     }
 }
