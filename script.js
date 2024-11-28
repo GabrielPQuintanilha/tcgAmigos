@@ -5,7 +5,7 @@ let baralho_dois ="";
 let atributoMaiorValor = "";
 
 let arrayValoresCartas = [];
-const arrayAtributos = ["azedo", "carisma", "dodoi", "feio", "resistencia_etilica", "vagabundo"];
+const arrayAtributos = ["azedo", "carisma", "dodoi", "feio", "Resistência Etílica", "vagabundo"];
 let maiorValor = "";
 
 const div_intro = document.querySelector("#intro");
@@ -17,6 +17,9 @@ let yourTurn ="";
 let fimJogo=0;
 let dificuldade="";
 
+
+
+
 const cartas = [
   {
     "nome": "machado",
@@ -25,7 +28,7 @@ const cartas = [
     "carisma": 8,
     "dodoi": 6,
     "feio": 3,
-    "resistencia_etilica": 3,
+    "Resistência Etílica": 3,
     "vagabundo": 1
   },
   {
@@ -35,69 +38,69 @@ const cartas = [
     "carisma": 4,
     "dodoi": 2,
     "feio": 8,
-    "resistencia_etilica": 5,
+    "Resistência Etílica": 5,
     "vagabundo": 8
   },
-  {
-    "nome": "machado bicudo",
-    "id": "m3",
-    "azedo": 3,
-    "carisma": 8,
-    "dodoi": 10,
-    "feio": 4,
-    "resistencia_etilica": 2,
-    "vagabundo": 7
-  },
-  {
-    "nome": "machado picanha",
-    "id": "m4",
-    "azedo": 6,
-    "carisma": 10,
-    "dodoi": 8,
-    "feio": 4,
-    "resistencia_etilica": 1,
-    "vagabundo": 4
-  },
-  {
-    "nome": "quinta",
-    "id": "q1",
-    "azedo": 3,
-    "carisma": 7,
-    "dodoi": 6,
-    "feio": 1,
-    "resistencia_etilica": 3,
-    "vagabundo": 2
-  },
-  {
-    "nome": "quinta no zap",
-    "id": "q2",
-    "azedo": 4,
-    "carisma": 6,
-    "dodoi": 9,
-    "feio": 2,
-    "resistencia_etilica": 4,
-    "vagabundo": 4
-  },
-  {
-    "nome": "quinta coringa",
-    "id": "q3",
-    "azedo": 8,
-    "carisma": 2,
-    "dodoi": 6,
-    "feio": 10,
-    "resistencia_etilica": 3,
-    "vagabundo": 5
-  },
-  {
-    "nome": "bd sr quintanilha",
-    "id": "q4",
-    "azedo": 3,
-    "carisma": 6,
-    "dodoi": 6,
-    "feio": 2,
-    "resistencia_etilica": 5,
-    "vagabundo": 1
-  }
+  // {
+    // "nome": "machado bicudo",
+    // "id": "m3",
+    // "azedo": 3,
+    // "carisma": 8,
+    // "dodoi": 10,
+    // "feio": 4,
+    // "Resistência Etílica": 2,
+    // "vagabundo": 7
+  // },
+  // {
+    // "nome": "machado picanha",
+    // "id": "m4",
+    // "azedo": 6,
+    // "carisma": 10,
+    // "dodoi": 8,
+    // "feio": 4,
+    // "Resistência Etílica": 1,
+    // "vagabundo": 4
+  // },
+  // {
+    // "nome": "quinta",
+    // "id": "q1",
+    // "azedo": 3,
+    // "carisma": 7,
+    // "dodoi": 6,
+    // "feio": 1,
+    // "Resistência Etílica": 3,
+    // "vagabundo": 2
+  // },
+  // {
+    // "nome": "quinta no zap",
+    // "id": "q2",
+    // "azedo": 4,
+    // "carisma": 6,
+    // "dodoi": 9,
+    // "feio": 2,
+    // "Resistência Etílica": 4,
+    // "vagabundo": 4
+  // },
+  // {
+    // "nome": "quinta coringa",
+    // "id": "q3",
+    // "azedo": 8,
+    // "carisma": 2,
+    // "dodoi": 6,
+    // "feio": 10,
+    // "Resistência Etílica": 3,
+    // "vagabundo": 5
+  // },
+  // {
+    // "nome": "bd sr quintanilha",
+    // "id": "q4",
+    // "azedo": 3,
+    // "carisma": 6,
+    // "dodoi": 6,
+    // "feio": 2,
+    // "Resistência Etílica": 5,
+    // "vagabundo": 1
+  // }
 ]
 
 function shuffle (){
@@ -109,9 +112,12 @@ const shuffle_cartas = cartas.sort((a, b) => 0.5 - Math.random());
 }
 
 function enterUsername() {
+    
+    inicioMusica();
+    
     const sumbit_username = document.querySelector("#submit_username");
-    const username_input = document.querySelector("#username");
-    let username = username_input.value;
+    // const username_input = document.querySelector("#username");
+    // let username = username_input.value;
     
     
     const div_menu = document.querySelector("#menu");
@@ -121,8 +127,8 @@ function enterUsername() {
     const span_intro = document.querySelector("#span_intro");
     
     span_intro.textContent = `Preciso que você escolha a dificuldade do nosso desafio:`;
-    span_intro.insertAdjacentHTML("afterend", 
-    `<div> <input type='button' value='Fácil' id='iniciar_jogo'> <input type='button' value='Médio' id='iniciar_jogo'> <input type='button' value='Difícil' id='iniciar_jogo'></div>`)
+    span_intro.insertAdjacentHTML("beforeend", 
+    `<div > <input type='button' value='Fácil' id='iniciar_jogo'> <input type='button' value='Médio' id='iniciar_jogo'> <input type='button' value='Difícil' id='iniciar_jogo'></div>`)
     
     const iniciar_jogo = document.querySelectorAll("#iniciar_jogo");
     
@@ -168,8 +174,9 @@ function jogadaUsuario(){
     
     div_intro.style.display = "none";
     div_batalha.style.display="block";
+    texto_batalha.style.display="flex";
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`)
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`)
     const imagem = document.querySelector("#carta_um");
     
     entrarBaixo();
@@ -184,6 +191,7 @@ function jogadaUsuario(){
 function jogadaOponente(){
     arrayValoresCartas = [];
     maiorValor = "";
+    
     
     for (let i=0;i<6;i++){
             arrayValoresCartas.push(baralho_dois[0][arrayAtributos[i]]);
@@ -238,34 +246,33 @@ function disputaVitoria(){
     const botao_proximo_round = document.querySelector("#botao_proximo_round");
     botao_proximo_round.addEventListener("click", nextRound);
     
-    
+    texto_batalha.innerHTML="";
     
     if (baralho_dois[0][atributoMaiorValor]>baralho_um[0][atributoMaiorValor]){
-        texto_batalha.textContent=`Você perdeu esse round. Você perde "${baralho_um[0].nome}"`;
+        texto_batalha.innerHTML=`Você <span id="span_cor" style="color: red"> perdeu </span> esse round. Você <span id="span_cor" style="color: red"> perde </span> "${baralho_um[0].nome}"`;
         sairCima();
         console.log("Voce perdeu. Voce perde sua Carta");
         baralho_dois.push(baralho_um[0]);
         baralho_dois.push(baralho_dois[0])
         baralho_um.shift();
         baralho_dois.shift();
-        texto_batalha.style.color="red";
         yourTurn = 0;
         
     }
     else if (baralho_dois[0][atributoMaiorValor]<baralho_um[0][atributoMaiorValor]){
-        texto_batalha.textContent=`Você ganhou esse round. Você ganha "${baralho_dois[0].nome}"`;
-        console.log("Voce ganhou. Voce ganha a carta do Oponente");
+        texto_batalha.innerHTML=`Você <span id="span_cor" style="color: green"> ganhou </span> esse round. Você <span id="span_cor" style="color: green"> ganha </span> "${baralho_dois[0].nome}"`;
+        // console.log("Voce ganhou. Voce ganha a carta do Oponente");
         sairBaixo();
         baralho_um.push(baralho_dois[0]);
         baralho_um.push(baralho_um[0])
         baralho_dois.shift();
         baralho_um.shift();
-        texto_batalha.style.color="green";
+        // texto_batalha.style.color="green";
         yourTurn = 1;
     }
     else if (baralho_dois[0][atributoMaiorValor]===baralho_um[0][atributoMaiorValor]){
         texto_batalha.textContent="Empate";
-        console.log("Empate. ninguem ganha.");
+        // console.log("Empate. ninguem ganha.");
         sairBaixo();
         baralho_um.push(baralho_um[0]);
         baralho_um.shift();
@@ -282,7 +289,7 @@ function selecionarCaracteristica(){
     console.log(baralho_dois[0])
     console.log(this.value)
     console.log(baralho_um[0][this.value])
-    texto_batalha.textContent = `${atributoMaiorValor} do seu oponente é ${baralho_dois[0][atributoMaiorValor]}`;
+    texto_batalha.textContent = `O atributo "${atributoMaiorValor}" do seu oponente é ${baralho_dois[0][atributoMaiorValor]}`;
     setTimeout(disputaVitoria, 2500);
    
 }
@@ -314,22 +321,29 @@ function nextRound(){
 function fimDoJogo(){
     
     if (baralho_um.length<1){
-        texto_batalha.textContent = ``;
+        musicaFinal();
+        // texto_batalha.textContent = ``;
+        texto_batalha.style.display="none";
         fimJogo = 1;
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
-        span_resultado.innerText=`Você perdeu!`;
+        span_resultado.innerText=`Você perdeu no modo ${dificuldade}!`;
         span_resultado.style.color="red";
     }
     
     else if(baralho_dois.length<1){
-        texto_batalha.textContent = ``;
+        musicaFinal();
+        // texto_batalha.textContent = ``;
+        texto_batalha.style.display="none";
         fimJogo = 1;
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
-        span_resultado.innerText=`Você ganhou!`;
+        span_resultado.innerText=`Você ganhou no modo ${dificuldade}!`;
         span_resultado.style.color="green";
+        estrelasVitoria();
     }
+    span_resultado.insertAdjacentHTML("beforeend",`<div><button onclick="location.reload();">Reiniciar Jogo</button></div>`);
+    
 }
 
 function tamanhoDeckCartas(){
@@ -338,7 +352,7 @@ function tamanhoDeckCartas(){
     div_deck.innerHTML="";
     
     for(let i=1;i<=baralho_um.length;i++){
-        div_deck.insertAdjacentHTML("beforeend",`<img src="img/backTCG.JPG" id="img_deck_cartas">`);
+        div_deck.insertAdjacentHTML("beforeend",`<img src="./img/backTCG.JPG" id="img_deck_cartas">`);
     }
 }
 
@@ -350,9 +364,10 @@ function preFaseOponente(){
     div_intro.style.display = "none";
     div_batalha.style.display="block";
     span_botoes_batalha.style.display = "none";
+    texto_batalha.style.display="flex";
     texto_batalha.textContent = `Aguarde o seu oponente`;
     
-    span_batalha.insertAdjacentHTML("beforeend", `<img src="img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`);
+    span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.JPG" id="carta_um" class="imagem">`);
     entrarBaixo();
     
     setTimeout(jogadaOponente, 3000); 
@@ -378,7 +393,7 @@ function aparecerBotoesUsuario(){
     <input type="button" class = "botao_batalha" id ="botao_carisma" value="carisma">
     <input type="button" class = "botao_batalha" id ="botao_dodoi" value="dodoi">
     <input type="button" class = "botao_batalha" id ="botao_feio" value="feio">
-    <input type="button" class = "botao_batalha" id ="botao_resistenciaEtilica" value="resistencia_etilica">
+    <input type="button" class = "botao_batalha" id ="botao_resistenciaEtilica" value="Resistência Etílica">
     <input type="button" class = "botao_batalha" id ="botao_vagabundo" value="vagabundo"> 
     </div>`)
     
@@ -411,4 +426,37 @@ function entrarBaixo(){
         imagem.classList.add('mostrar');  // Adiciona a classe 'mostrar' após um pequeno atraso
     }, 500);  // Atraso de 500ms para o efeito de fade-in
     return
+}
+
+function inicioMusica() {
+    var audio = document.getElementById("som");
+    audio.muted = false; // Desativa o mudo, permitindo que o áudio seja ouvido
+    audio.play();
+ }
+ 
+function musicaFinal() {
+    var audio = document.getElementById("som");
+    var player = document.getElementById("player");
+    player.src = "musica2.mp3"
+    audio.load(); // Recarrega o áudio
+    audio.play(); // Inicia a nova música
+}
+
+function estrelasVitoria(){
+    const pngsEstrela=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+    
+    const shuffle_pngsEstrela = pngsEstrela.sort((a, b) => 0.5 - Math.random());
+    
+    if (dificuldade==="Fácil"){
+        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+    }
+    else if(dificuldade==="Médio"){
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
+    }
+    else{
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.PNG">`);
+    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.PNG">`)
+    }
 }
