@@ -2,26 +2,72 @@
     display:none;
     }
 
+#span_intro{
+    background-color:white;
+    display: block;
+    border: 2px solid black; /* Borda preta de 2px */
+    border-radius: 10px; /* Vértices arredondados */
+    padding: 5px; /* Opcional: adiciona um pouco de espaçamento interno ao redor do conteúdo */
+    
+}
+
+
 body{
-    min-width:300;display:flex; justify-content: center;text-align:center;
+    min-width:300;
+    max-width:375;
+    display:flex; 
+    justify-content: center;
+    text-align:center;
+    background-image: url(img/backTCG.JPG);
+    background-size: 378px;  /* Mantém a imagem cobrindo toda a área */
+    background-position: center -1px;  /* Alinha horizontalmente no centro e desloca a imagem 50px para baixo */
+    background-repeat: no-repeat;  /* Evita a repetição da imagem */
     }
 
 
 #carta_um{
-    width:300px;height:auto;margin:auto
+    width:300px;
+    height:auto;
+    /* margin:auto */
+    margin-top: -10px; 
     }
 
 #div_batalha{
     display:flex;
+    margin-top: -15px; 
     }
+
+#texto_batalha{
+    background-color:white;
+    display: none;
+    /* text-align:center; */
+    justify-content: center;
+    border: 2px solid black; /* Borda preta de 2px */
+    border-radius: 10px; /* Vértices arredondados */
+    padding: 5px; /* Opcional: adiciona um pouco de espaçamento interno ao redor do conteúdo */
+}
 
 #span_batalha{
-    position:relative;height:500px;
+    position:relative;
+    height:500px;
+    background-color:none;
+    
     }
 
+#span_cor {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
 #span_botoes_batalha{
-    display:flex;color:red;flex-direction:column;background-color:red;position:relative;
+    display:flex;
+    color:red;
+    flex-direction:column;
+    background-color:red;
+    position:relative;
     }
 
 .botao_batalha{
@@ -59,9 +105,12 @@ body{
 #span_resultado{
     font-size:45px;
     color:red;
-    /* background-color:black; */
-    margin-top:200px;
+    background-color:white;
+    margin-top:80px;
     display:none;
+    border: 2px solid black; /* Borda preta de 2px */
+    border-radius: 10px; /* Vértices arredondados */
+    padding: 5px; /* Opcional: adiciona um pouco de espaçamento interno ao redor do conteúdo */
 }
 
 #botao_proximo_round{
@@ -102,4 +151,9 @@ body{
 .imagem.sairBaixo {
     opacity: 0; /* A imagem se torna invisível */
     transform: translateY(+50px); /* A imagem se move para cima, como se estivesse saindo */
+}
+
+#id_estrelas{
+    width:100px;
+    height:auto;
 }
