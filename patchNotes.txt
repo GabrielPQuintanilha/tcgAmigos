@@ -1,8 +1,5 @@
-mudança do background ao iniciar o jogo para nao tomar a tela toda no desktop
-mudança do texto para esoclher dificuldade
-adição de funcao para decidir oponente
-correção do empate: passa para o turno do adversario
-mudança do tamanho do deck de cartas
-adicao de botao de restart customizado;
-mudanca do tamanho da estrela p caber na mesma linha
-adicao de frase final de derrota.
+coloquei botao para iniciar novo jogo (seleciona uma carta aleatoria)
+coloquei a funcao shuffle ligada ao otao de dificuldade
+coloquei funcao inicio de musica apos clique do botao #iniciar_jogo
+fim de jogo() - #span_resultado troca de "modo" para "Dificuldade"
+mudei a height do #text_batalha para ser fixo e nao mexer na <img> da carta

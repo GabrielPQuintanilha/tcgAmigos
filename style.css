@@ -46,6 +46,7 @@ body{
     height:auto;
     margin-top: -10px; 
     box-shadow:  0 5px 5px black;
+    /* position: absolute */
     }
 
 #div_batalha{
@@ -60,13 +61,14 @@ body{
     border: 2px solid black; /* Borda preta de 2px */
     border-radius: 10px; /* Vértices arredondados */
     padding: 5px; /* Opcional: adiciona um pouco de espaçamento interno ao redor do conteúdo */
+    height:32px;
+    width:340px;
 }
 
 #span_batalha{
     position:relative;
     height:500px;
     background-color:none;
-    
     }
 
 #span_cor {
@@ -94,6 +96,12 @@ body{
     margin:3px;
     height:24px;
     outline: none;
+}
+
+#drinkGamesButton{
+    position: absolute;
+    margin-top:300px;
+    margin-left:-100px;
 }
 
 #div_botao_batalha{
@@ -139,6 +147,13 @@ body{
     height:auto;
     margin-top:200px;
     margin-left:15px;
+    filter: drop-shadow(0 3px 3px black);
+}
+
+#botao_reiniciar_drink{
+    width:150px;
+    height:auto;
+    margin-top:10px;
     filter: drop-shadow(0 3px 3px black);
 }
 
