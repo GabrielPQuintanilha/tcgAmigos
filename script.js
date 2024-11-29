@@ -426,7 +426,7 @@ function enterUsername() {
     <input type='image' src="./botoes/botaoMedio.png" value='Médio' id='iniciar_jogo'> 
     <input type='image' src="./botoes/botaoDificil.png" value='Difícil' id='iniciar_jogo'>
     </div>
-    <input id="drinkGamesButton" type="button" value="Drink">`);
+    <input id="drinkGamesButton" type="image" src="./botoes/copoCerveja.png" value="Drink">`);
     
     const drinkGamesButton = document.querySelector("#drinkGamesButton"); 
     drinkGamesButton.addEventListener("click", startDrinkGame);
