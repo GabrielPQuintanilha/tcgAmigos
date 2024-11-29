@@ -802,7 +802,7 @@ function funcaoDesempate(){
     }
     else{
         yourTurn = 0;
-        texto_batalha.innerHTML=`Empate. Turno passa para ${Oponente}`;
+        texto_batalha.innerHTML=`Empate. O turno passa para ${Oponente}`;
     }
 }
 
