@@ -36,7 +36,7 @@ body{
     text-align:center;
     background-image: url(./img/deck.png);
     background-size: 378px;  /* Mantém a imagem cobrindo toda a área */
-    background-position: center -1px;  /* Alinha horizontalmente no centro e desloca a imagem 50px para baixo */
+    background-position: center -5px;  /* Alinha horizontalmente no centro e desloca a imagem 50px para baixo */
     background-repeat: no-repeat;  /* Evita a repetição da imagem */
     }
 
