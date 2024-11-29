@@ -12,14 +12,10 @@ const div_intro = document.querySelector("#intro");
 const botao_batalha = document.querySelector(".botao_batalha");
 const texto_batalha = document.querySelector("#texto_batalha");
 
-
 let yourTurn ="";
 let fimJogo=0;
 let dificuldade="";
 let Oponente="";
-
-
-
 
 const cartas = [
   {
@@ -416,10 +412,6 @@ function enterUsername() {
     document.body.style.backgroundImage = "url('./img/mesaMadeira.png')";
     // document.body.style.backgroundRepeat= "repeat";
     
-    
-    
-    inicioMusica();
-    
     const sumbit_username = document.querySelector("#submit_username");
     
     const div_menu = document.querySelector("#menu");
@@ -430,17 +422,27 @@ function enterUsername() {
     
     span_intro.innerHTML =`<p>Selecione o nível de dificuldade:</p>`;
     span_intro.insertAdjacentHTML("beforeend", 
-    `<div > <input type='image' value='Fácil' src="./botoes/botaoFacil.png" id='iniciar_jogo'> <input type='image' src="./botoes/botaoMedio.png" value='Médio' id='iniciar_jogo'> <input type='image' src="./botoes/botaoDificil.png" value='Difícil' id='iniciar_jogo'></div>`)
+    `<div > <input type='image' value='Fácil' src="./botoes/botaoFacil.png" id='iniciar_jogo'>
+    <input type='image' src="./botoes/botaoMedio.png" value='Médio' id='iniciar_jogo'> 
+    <input type='image' src="./botoes/botaoDificil.png" value='Difícil' id='iniciar_jogo'>
+    </div>
+    <input id="drinkGamesButton" type="button" value="Drink">`);
+    
+    const drinkGamesButton = document.querySelector("#drinkGamesButton"); 
+    drinkGamesButton.addEventListener("click", startDrinkGame);
     
     escolhaOponente();
     
     const iniciar_jogo = document.querySelectorAll("#iniciar_jogo");
     
+    
     for (const botao of iniciar_jogo){
+        botao.addEventListener("click", shuffle);
         botao.addEventListener("click", startGame);
+        botao.addEventListener("click", inicioMusica);
+        
     }
     
-    shuffle();
 }
 
 function startGame(){
@@ -632,7 +634,7 @@ function fimDoJogo(){
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
         span_resultado.innerHTML=`<p>Você perdeu</p> 
-        <p id="textoFinal" style="font-size: 20px;">Modo: ${dificuldade}</p>
+        <p id="textoFinal" style="font-size: 20px;">Dificuldade: ${dificuldade}</p>
         <p style="font-size: 30px;">Você diz: <p id="textoFinal" style="font-size: 30px;">${funcaoFrasesDerrota()}</p></p>` 
         ;
     }
@@ -644,7 +646,7 @@ function fimDoJogo(){
         fimJogo = 1;
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
-        span_resultado.innerHTML=`<p>Você ganhou</p><p style="font-size: 20px;">Modo ${dificuldade}</p>`;
+        span_resultado.innerHTML=`<p>Você ganhou</p><p style="font-size: 20px;">Dificuldade: ${dificuldade}</p>`;
         estrelasVitoria();
     }
     span_resultado.insertAdjacentHTML("beforeend",`<div><input id="botao_reiniciar" type="image" src=" ./botoes/botaoReiniciar.png" onclick="location.reload();"></input></div>`);
@@ -787,11 +789,12 @@ function estrelasVitoria(){
 }
 
 function escolhaOponente(){
-    const eliteFour = ["Inês","Baixo Botafogo","Vasco da Gama","Allan","Fogo Paulista","Miliciano de Saquaricá","Bar da Velha", "Ex namorada do..."];
+    const eliteFour = ["Inês","Aloísio","Vasco da Gama","Allan","Fogo Paulista","Miliciano de Saquaricá","Carteira de Trabalho", "Ex namorad..."];
     let roll = Math.floor(Math.random() * 8);
     Oponente = eliteFour[roll];
     
-    span_intro.insertAdjacentHTML("beforeend",`<div> <p>Oponente: ${Oponente}.</p> <p>Prepare-se...</p></div>`);
+    span_intro.insertAdjacentHTML("beforeend",
+    `<div> <p>Oponente: ${Oponente}.</p> <p>Prepare-se...</p></div>`);
     
 }
 
@@ -810,4 +813,20 @@ function funcaoFrasesDerrota(){
     const frases = ["No futuro a gente vai ta rindo disso...","Odeio esse mongoloide","E o foda-se?" ]
     let roll = Math.floor(Math.random() * 3);
     return frases[roll];
+}
+
+function startDrinkGame(){
+    
+    div_intro.style.display = "none";
+    span_batalha.innerHTML="";
+    span_botoes_batalha.innerHTML="";
+    popUpFinal.style.display="none";
+    
+    const shuffle_cartas = cartas.sort((a, b) => 0.5 - Math.random());
+    baralho_um = cartas;
+    
+    span_batalha.innerHTML= `<img style="margin-top: 25px" src="./img/${baralho_um[0].id}.png" id="carta_um" class="imagem">`;
+    entrarBaixo();
+    span_batalha.insertAdjacentHTML("beforeend", 
+    `<p><input style="margin-top: -10px" id="botao_reiniciar_drink" type="image" src=" ./botoes/botaoReiniciar.png" onclick="location.reload();"></input></p>`);
 }
