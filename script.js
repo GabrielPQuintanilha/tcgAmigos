@@ -12,10 +12,11 @@ const div_intro = document.querySelector("#intro");
 const botao_batalha = document.querySelector(".botao_batalha");
 const texto_batalha = document.querySelector("#texto_batalha");
 
-const eliteFour = [0,1,2,3];
+
 let yourTurn ="";
 let fimJogo=0;
 let dificuldade="";
+let Oponente="";
 
 
 
@@ -25,7 +26,7 @@ const cartas = [
     "nome": "Ibra",
     "id": "b1",
     "Azedo": 5,
-    "Carisma": 7,
+    "Carisma": 7, 
     "Dodói": 4,
     "Feio": 3,
     "Resistência Etílica": 9,
@@ -45,7 +46,7 @@ const cartas = [
     "nome": "Ibra lyon",
     "id": "b3",
     "Azedo": 8,
-    "Carisma": 5,
+    "Carisma": 5, 
     "Dodói": 4,
     "Feio": 5,
     "Resistência Etílica": 5,
@@ -412,13 +413,14 @@ const shuffle_cartas = cartas.sort((a, b) => 0.5 - Math.random());
 }
 
 function enterUsername() {
+    document.body.style.backgroundImage = "url('./img/mesaMadeira.png')";
+    // document.body.style.backgroundRepeat= "repeat";
+    
+    
     
     inicioMusica();
     
     const sumbit_username = document.querySelector("#submit_username");
-    // const username_input = document.querySelector("#username");
-    // let username = username_input.value;
-    
     
     const div_menu = document.querySelector("#menu");
     div_intro.style.display = "block";
@@ -426,9 +428,11 @@ function enterUsername() {
     
     const span_intro = document.querySelector("#span_intro");
     
-    span_intro.textContent = `Preciso que você escolha a dificuldade do nosso desafio:`;
+    span_intro.innerHTML =`<p>Selecione o nível de dificuldade:</p>`;
     span_intro.insertAdjacentHTML("beforeend", 
-    `<div > <input type='button' value='Fácil' id='iniciar_jogo'> <input type='button' value='Médio' id='iniciar_jogo'> <input type='button' value='Difícil' id='iniciar_jogo'></div>`)
+    `<div > <input type='image' value='Fácil' src="./botoes/botaoFacil.png" id='iniciar_jogo'> <input type='image' src="./botoes/botaoMedio.png" value='Médio' id='iniciar_jogo'> <input type='image' src="./botoes/botaoDificil.png" value='Difícil' id='iniciar_jogo'></div>`)
+    
+    escolhaOponente();
     
     const iniciar_jogo = document.querySelectorAll("#iniciar_jogo");
     
@@ -526,7 +530,7 @@ function jogadaOponente(){
     
     
     
-    setTimeout(function(){texto_batalha.textContent = `Seu oponente escolheu ${atributoMaiorValor}: ${maiorValor}`}, 1000);
+    setTimeout(function(){texto_batalha.textContent = `${Oponente} escolheu "${atributoMaiorValor}: ${maiorValor}"`}, 1000);
     setTimeout(disputaVitoria, 4500);
     
     console.log(baralho_dois[0]);
@@ -539,10 +543,10 @@ function disputaVitoria(){
     const span_resultado = document.querySelector("#span_resultado");
     const span_botao_proximoRound = document.querySelector("#span_botao_proximoRound");
     
-    span_resultado.style.color="red";
+    // span_resultado.style.color="red";
     popUpFinal.style.display="block";
     
-    span_botao_proximoRound.insertAdjacentHTML("beforeend", `<input type="button" id="botao_proximo_round" value="Próximo">`);
+    span_botao_proximoRound.insertAdjacentHTML("beforeend", `<input type="image" src="./botoes/botaoProximo.png" id="botao_proximo_round" value="Próximo">`);
     const botao_proximo_round = document.querySelector("#botao_proximo_round");
     botao_proximo_round.addEventListener("click", nextRound);
     
@@ -561,23 +565,23 @@ function disputaVitoria(){
     }
     else if (baralho_dois[0][atributoMaiorValor]<baralho_um[0][atributoMaiorValor]){
         texto_batalha.innerHTML=`<span>Você <span id="span_cor" style="color: green"> ganhou </span> esse round. Você <span id="span_cor" style="color: green"> ganha </span> "${baralho_dois[0].nome}"</span>`;
-        // console.log("Voce ganhou. Voce ganha a carta do Oponente");
+        console.log("Voce ganhou. Voce ganha a carta do Oponente");
         sairBaixo();
         baralho_um.push(baralho_dois[0]);
         baralho_um.push(baralho_um[0])
         baralho_dois.shift();
         baralho_um.shift();
-        // texto_batalha.style.color="green";
         yourTurn = 1;
     }
     else if (baralho_dois[0][atributoMaiorValor]===baralho_um[0][atributoMaiorValor]){
-        texto_batalha.textContent="Empate";
-        // console.log("Empate. ninguem ganha.");
+        // texto_batalha.textContent="Empate. Sua vez:";
+        console.log("Empate. ninguem ganha.");
         sairBaixo();
         baralho_um.push(baralho_um[0]);
         baralho_um.shift();
         baralho_dois.push(baralho_dois[0]);
         baralho_dois.shift();
+        funcaoDesempate();
     }
     tamanhoDeckCartas();
 }
@@ -622,27 +626,28 @@ function fimDoJogo(){
     
     if (baralho_um.length<1){
         musicaFinal();
-        // texto_batalha.textContent = ``;
+        document.body.style.backgroundImage = "url(./img/deck.png)";
         texto_batalha.style.display="none";
         fimJogo = 1;
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
-        span_resultado.innerText=`Você perdeu no modo ${dificuldade}!`;
-        span_resultado.style.color="red";
+        span_resultado.innerHTML=`<p>Você perdeu</p> 
+        <p id="textoFinal" style="font-size: 20px;">Modo: ${dificuldade}</p>
+        <p style="font-size: 30px;">Você diz: <p id="textoFinal" style="font-size: 30px;">${funcaoFrasesDerrota()}</p></p>` 
+        ;
     }
     
     else if(baralho_dois.length<1){
         musicaFinal();
-        // texto_batalha.textContent = ``;
+        document.body.style.backgroundImage = "url(./img/deck.png)";
         texto_batalha.style.display="none";
         fimJogo = 1;
         span_resultado.style.display="block";
         popUpFinal.style.display="block";
-        span_resultado.innerText=`Você ganhou no modo ${dificuldade}!`;
-        span_resultado.style.color="green";
+        span_resultado.innerHTML=`<p>Você ganhou</p><p style="font-size: 20px;">Modo ${dificuldade}</p>`;
         estrelasVitoria();
     }
-    span_resultado.insertAdjacentHTML("beforeend",`<div><button onclick="location.reload();">Reiniciar Jogo</button></div>`);
+    span_resultado.insertAdjacentHTML("beforeend",`<div><input id="botao_reiniciar" type="image" src=" ./botoes/botaoReiniciar.png" onclick="location.reload();"></input></div>`);
     
 }
 
@@ -667,15 +672,9 @@ function tamanhoDeckCartas(){
     else if (baralho_um.length >= 10 && baralho_um.length <13) {
         div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck75.png" id="img_deck_cartas">`);
     } 
-    else {
+    else if (baralho_um.length >= 13) {
         div_deck.insertAdjacentHTML("beforeend", `<img src="./img/deck100.png" id="img_deck_cartas">`);
     }
-    
-    // for(let i=1;i<=baralho_um.length;i++){
-        // if (i<=10){
-            // div_deck.insertAdjacentHTML("beforeend",`<img src="./img/backTCG.JPG" id="img_deck_cartas">`);
-        // }
-    // }
 }
 
 function preFaseOponente(){
@@ -687,7 +686,7 @@ function preFaseOponente(){
     div_batalha.style.display="block";
     span_botoes_batalha.style.display = "none";
     texto_batalha.style.display="flex";
-    texto_batalha.textContent = `Aguarde o seu oponente`;
+    texto_batalha.innerHTML = `${Oponente} está pensando...`;
     
     span_batalha.insertAdjacentHTML("beforeend", `<img src="./img/${baralho_um[0].id}.png" id="carta_um" class="imagem">`);
     entrarBaixo();
@@ -771,15 +770,44 @@ function estrelasVitoria(){
     const shuffle_pngsEstrela = pngsEstrela.sort((a, b) => 0.5 - Math.random());
     
     if (dificuldade==="Fácil"){
-        span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
+        span_resultado.insertAdjacentHTML("beforeend",
+        `<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
     }
     else if(dificuldade==="Médio"){
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
+    span_resultado.insertAdjacentHTML("beforeend",
+    `<span><img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">
+    <img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png"></span>`);
     }
     else{
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">`);
-    span_resultado.insertAdjacentHTML("afterend",`<img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.png">`)
+    span_resultado.insertAdjacentHTML("beforeend",
+    `<span><img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[0]}.png">
+    <img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[1]}.png">
+    <img id="id_estrelas"src="./pngsEstrela/${pngsEstrela[2]}.png"></span>`);
     }
+}
+
+function escolhaOponente(){
+    const eliteFour = ["Inês","Baixo Botafogo","Vasco da Gama","Allan","Fogo Paulista","Miliciano de Saquaricá","Bar da Velha", "Ex namorada do..."];
+    let roll = Math.floor(Math.random() * 8);
+    Oponente = eliteFour[roll];
+    
+    span_intro.insertAdjacentHTML("beforeend",`<div> <p>Oponente: ${Oponente}.</p> <p>Prepare-se...</p></div>`);
+    
+}
+
+function funcaoDesempate(){
+    if (yourTurn === 0){
+        yourTurn = 1;
+        texto_batalha.innerHTML="Empate. Sua vez:";
+    }
+    else{
+        yourTurn = 0;
+        texto_batalha.innerHTML=`Empate. Turno passa para ${Oponente}`;
+    }
+}
+
+function funcaoFrasesDerrota(){
+    const frases = ["No futuro a gente vai ta rindo disso...","Odeio esse mongoloide","E o foda-se?" ]
+    let roll = Math.floor(Math.random() * 3);
+    return frases[roll];
 }

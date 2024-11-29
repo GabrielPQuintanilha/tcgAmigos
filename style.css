@@ -11,17 +11,30 @@
 }
 
 #submit_username{
-    width:100px;
-    height:50px;
+    width:150px;
+    height:auto;
+    filter: drop-shadow(0 3px 3px black);
 }
+
+#iniciar_jogo{
+    width:50px;
+    height:auto;
+    margin-top:5px;
+}
+
+HTML{
+    background-color:black;
+}
+
 
 body{
     min-width:300;
-    max-width:375;
+    max-width:378;
+    height: 667px;
     display:flex; 
     justify-content: center;
     text-align:center;
-    background-image: url(img/deck.png);
+    background-image: url(./img/deck.png);
     background-size: 378px;  /* Mantém a imagem cobrindo toda a área */
     background-position: center -1px;  /* Alinha horizontalmente no centro e desloca a imagem 50px para baixo */
     background-repeat: no-repeat;  /* Evita a repetição da imagem */
@@ -31,8 +44,8 @@ body{
 #carta_um{
     width:300px;
     height:auto;
-    /* margin:auto */
     margin-top: -10px; 
+    box-shadow:  0 5px 5px black;
     }
 
 #div_batalha{
@@ -89,12 +102,12 @@ body{
     left:0px;
 }
 
-.botao_batalha:hover{
-    opacity:1;
-    box-shadow: 0 0 0 3px yellow;
-}
+/* .botao_batalha:hover{ */
+    /* opacity:1; */
+    /* box-shadow: 0 0 0 3px yellow; */
+/* } */
 
-.botao_batalha:focus {
+.botao_batalha:focus { /* por algum motivo se tirar buga o botao de "proximo"*/
     /* outline: none; /* Remove o outline do foco */ 
     box-shadow: none; /* Remove qualquer box-shadow do foco */
 }
@@ -112,9 +125,9 @@ body{
 
 #span_resultado{
     font-size:45px;
-    color:red;
+    /* color:red; */
     background-color:white;
-    margin-top:80px;
+    margin-top:10px;
     display:none;
     border: 2px solid black; /* Borda preta de 2px */
     border-radius: 10px; /* Vértices arredondados */
@@ -122,9 +135,17 @@ body{
 }
 
 #botao_proximo_round{
-    width:auto;
-    height:30px;
+    width:200px;
+    height:auto;
     margin-top:200px;
+    margin-left:15px;
+    filter: drop-shadow(0 3px 3px black);
+}
+
+#botao_reiniciar{
+    width:200px;
+    height:auto;
+    filter: drop-shadow(0 3px 3px black);
 }
 
 #div_deck{
@@ -138,6 +159,7 @@ body{
 #img_deck_cartas{
     width:auto;
     height:60px;
+    filter: drop-shadow(0 2px 2px black);
 }
 
 .imagem {
@@ -162,6 +184,10 @@ body{
 }
 
 #id_estrelas{
-    width:100px;
+    width:80px;
     height:auto;
+}
+
+#textoFinal{
+    margin-top:-40px;
 }
