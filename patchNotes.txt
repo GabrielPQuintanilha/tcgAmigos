@@ -1,0 +1,8 @@
+mudança do background ao iniciar o jogo para nao tomar a tela toda no desktop
+mudança do texto para esoclher dificuldade
+adição de funcao para decidir oponente
+correção do empate: passa para o turno do adversario
+mudança do tamanho do deck de cartas
+adicao de botao de restart customizado;
+mudanca do tamanho da estrela p caber na mesma linha
+adicao de frase final de derrota.
