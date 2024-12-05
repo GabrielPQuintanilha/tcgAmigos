@@ -22,7 +22,7 @@ const cartas = [
     "nome": "Ibra",
     "id": "b1",
     "Azedo": 5,
-    "Carisma": 7, 
+    "Carisma": 7,
     "Dodói": 4,
     "Feio": 3,
     "Resistência Etílica": 9,
@@ -42,7 +42,7 @@ const cartas = [
     "nome": "Ibra lyon",
     "id": "b3",
     "Azedo": 8,
-    "Carisma": 5, 
+    "Carisma": 5,
     "Dodói": 4,
     "Feio": 5,
     "Resistência Etílica": 5,
@@ -157,6 +157,16 @@ const cartas = [
     "Feio": 2,
     "Resistência Etílica": 5,
     "Vagabundo": 10
+  },
+  {
+    "nome": "Haroldo Dollynho",
+    "id": "h4",
+    "Azedo": 3,
+    "Carisma": 8,
+    "Dodói": 8,
+    "Feio": 8,
+    "Resistência Etílica": 3,
+    "Vagabundo": 8
   },
   {
     "nome": "Igor",
@@ -397,6 +407,46 @@ const cartas = [
     "Feio": 3,
     "Resistência Etílica": 7,
     "Vagabundo": 3
+  },
+  {
+    "nome": "Iago",
+    "id": "c1",
+    "Azedo": 1,
+    "Carisma": 9,
+    "Dodói": 7,
+    "Feio": 2,
+    "Resistência Etílica": 6,
+    "Vagabundo": 1
+  },
+  {
+    "nome": "Iago invertido",
+    "id": "c2",
+    "Azedo": 3,
+    "Carisma": 3,
+    "Dodói": 9,
+    "Feio": 5,
+    "Resistência Etílica": 1,
+    "Vagabundo": 7
+  },
+  {
+    "nome": "Lago",
+    "id": "c3",
+    "Azedo": 2,
+    "Carisma": 8,
+    "Dodói": 6,
+    "Feio": 3,
+    "Resistência Etílica": 7,
+    "Vagabundo": 5
+  },
+  {
+    "nome": "Iago de Viagem",
+    "id": "c4",
+    "Azedo": 1,
+    "Carisma": 10,
+    "Dodói": 8,
+    "Feio": 3,
+    "Resistência Etílica": 4,
+    "Vagabundo": 10
   }
 ]
 
